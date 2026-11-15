@@ -1,119 +1,119 @@
 # Knight Tour
 
-Консольное приложение для построения маршрута шахматного коня по доске.
+A console application for constructing a chess knight's route across a chessboard.
 
-Программа позволяет выбрать алгоритм построения маршрута, размер доски, начальную позицию коня и способ отображения результата.
+The program allows you to choose the route construction algorithm, board size, knight's starting position, and result display method.
 
-## Возможности
+## Features
 
-- выбор размера шахматной доски;
-- выбор начальной позиции коня;
-- построение маршрута случайным образом;
-- построение маршрута по алгоритму Варнсдорфа;
-- проверка корректности построенного маршрута;
-- вывод маршрута в консоль;
-- визуализация маршрута на шахматной доске;
-- вывод маршрута одновременно в консоль и на доске;
-- обработка некорректного пользовательского ввода.
+- choosing the chessboard size;
+- choosing the knight's starting position;
+- constructing a random route;
+- constructing a route using Warnsdorff's algorithm;
+- validating the constructed route;
+- displaying the route in the console;
+- visualizing the route on a chessboard;
+- displaying the route both in the console and on the board;
+- handling invalid user input.
 
-## Алгоритмы
+## Algorithms
 
-### Случайный маршрут
+### Random Route
 
-На каждом шаге программа случайным образом выбирает одну из доступных клеток, на которую может перейти конь.
+At each step, the program randomly selects one of the available squares the knight can move to.
 
-Из-за случайного выбора маршрут не обязательно проходит всю доску и может завершиться раньше, если из текущей позиции больше нет доступных ходов.
+Because the choice is random, the route may not cover the entire board and may end early if there are no available moves from the current position.
 
-### Алгоритм Варнсдорфа
+### Warnsdorff's Algorithm
 
-Для каждого возможного следующего хода определяется количество дальнейших доступных ходов.
+For each possible next move, the program determines the number of further available moves.
 
-На каждом шаге выбирается клетка с минимальным количеством таких ходов. Это позволяет значительно эффективнее строить длинные маршруты коня.
+At each step, the square with the minimum number of onward moves is selected. This allows the program to construct long knight's routes much more efficiently.
 
-## Проверка маршрута
+## Route Validation
 
-После построения маршрут автоматически проверяется.
+After the route is constructed, it is automatically validated.
 
-Проверяются:
+The following are checked:
 
-- последовательность номеров ходов;
-- корректность каждого перехода коня;
-- нахождение всех координат внутри доски;
-- количество посещённых клеток.
+- the sequence of move numbers;
+- the validity of each knight's move;
+- whether all coordinates are within the board;
+- the number of visited squares.
 
-В результате программа сообщает, является ли маршрут корректным и прошёл ли конь всю доску.
+As a result, the program reports whether the route is valid and whether the knight has covered the entire board.
 
-## Структура проекта
+## Project Structure
 
 ```text
 knightTour/
-├── main.py             # Главное меню и управление программой
-├── knight.py           # Логика построения маршрута
-├── board.py            # Вывод маршрута и визуализация доски
-├── validator.py        # Проверка корректности маршрута
-├── input_handler.py    # Обработка пользовательского ввода
-├── README.md           # Документация проекта
+├── main.py             # Main menu and program control
+├── knight.py           # Route construction logic
+├── board.py            # Route output and board visualization
+├── validator.py        # Route validation
+├── input_handler.py    # User input handling
+├── README.md           # Project documentation
 └── .gitignore
 ```
 
-## Установка
+## Installation
 
-Для работы визуализации требуется Python и библиотека `matplotlib`.
+Python and the `matplotlib` library are required for visualization.
 
-Установить зависимость можно командой:
+Install the dependency with:
 
 ```bash
 pip install matplotlib
 ```
 
-## Запуск
+## Running
 
-Перейдите в директорию проекта и выполните:
+Navigate to the project directory and run:
 
 ```bash
 python main.py
 ```
 
-После запуска откроется главное меню:
+After launching, the main menu will be displayed:
 
 ```text
 ==================================================
-                 МАРШРУТ КОНЯ
+                  KNIGHT'S TOUR
 ==================================================
 
-Текущие настройки:
-  Размер доски  : 8x8
-  Способ вывода : на доске
+Current settings:
+  Board size    : 8x8
+  Output method : board
 
 --------------------------------------------------
-1 — Случайный маршрут
-2 — Алгоритм Варнсдорфа
-3 — Изменить размер доски
-4 — Изменить способ вывода
-0 — Выход
+1 — Random Route
+2 — Warnsdorff's Algorithm
+3 — Change Board Size
+4 — Change Output Method
+0 — Exit
 
-Выберите действие:
+Choose an action:
 ```
 
-## Способы вывода
+## Output Methods
 
-Программа поддерживает три режима:
+The program supports three output modes:
 
-**1 — В консоли**
+**1 — Console**
 
-Маршрут отображается в виде таблицы с номерами ходов.
+The route is displayed as a table containing move numbers.
 
-**2 — На доске**
+**2 — Board**
 
-Маршрут отображается графически на шахматной доске с помощью `matplotlib`.
+The route is displayed graphically on a chessboard using `matplotlib`.
 
-**3 — В консоли и на доске**
+**3 — Console and Board**
 
-Используются оба способа одновременно.
+Both output methods are used simultaneously.
 
-## Пример
+## Example
 
-Для доски `8×8` и выбранного алгоритма программа может построить маршрут вида:
+For an `8×8` board and a selected algorithm, the program may construct a route such as:
 
 ```text
 11  . 13  .  9  .  7 34
@@ -126,17 +126,17 @@ python main.py
  . 21  . 43 26 23 38 29
 ```
 
-После построения программа сообщает количество посещённых клеток и статус маршрута.
+After constructing the route, the program reports the number of visited squares and the route status.
 
-## Используемые технологии
+## Technologies Used
 
 - Python
 - `matplotlib`
-- алгоритм Варнсдорфа
-- структуры данных `dict` и `list`
-- обработка исключений
-- модульная организация программы
+- Warnsdorff's algorithm
+- `dict` and `list` data structures
+- exception handling
+- modular program organization
 
-## Цель проекта
+## Project Goal
 
-Проект создан для практики разработки на Python и реализации алгоритмов поиска маршрута коня с последующей визуализацией результата.
+The project was created to practice Python development and implement knight's tour algorithms with subsequent visualization of the result.
